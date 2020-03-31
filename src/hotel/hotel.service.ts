@@ -32,7 +32,7 @@ export class HotelService {
     }
 
     // not async , since we user observables
-    search(query: HotelQueryDto) {
+    async search(query: HotelQueryDto) {
         return this.applyFilters(this.hotels, query);
     }
 

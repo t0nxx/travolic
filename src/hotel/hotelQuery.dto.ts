@@ -28,7 +28,7 @@ export class HotelQueryDto {
     @Transform(num => parseFloat(num))
     @IsOptional()
     @IsNumber()
-    @Min(0)
+    @Min(1)
     priceTo: number;
 
     @ApiPropertyOptional({ description: 'plz type iso date only like 2020-12-09T00:00:00Z' })
