@@ -18,14 +18,14 @@ export class HotelQueryDto {
     Destination: string;
 
     @ApiPropertyOptional()
-    @Transform(num => parseFloat(num))
+    @Transform(min => parseFloat(min))
     @IsOptional()
     @IsNumber()
     @Min(0)
     priceFrom: number;
 
     @ApiPropertyOptional()
-    @Transform(num => parseFloat(num))
+    @Transform(max => parseFloat(max))
     @IsOptional()
     @IsNumber()
     @Min(1)

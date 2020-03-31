@@ -44,11 +44,16 @@ export class HotelService {
         const ignoreCaseSensitive = new RegExp(subString, 'i');
         return arr.filter(hotel => hotel.city.match(ignoreCaseSensitive));
     }
-    searchByMinPrice(arr: HotelDto[], price: number) {
-        return arr.filter(hotel => hotel.price >= price);
-    }
-    searchByMaxPrice(arr: HotelDto[], price: number) {
-        return arr.filter(hotel => hotel.price <= price);
+    // searchByMinPrice(arr: HotelDto[], price: number) {
+    //     return arr.filter(hotel => hotel.price >= price);
+    // }
+    // searchByMaxPrice(arr: HotelDto[], price: number) {
+    //     return arr.filter(hotel => hotel.price <= price);
+    // }
+    searchByMinOrMaxPrice(arr: HotelDto[], price: number, searchBy: string) {
+        searchBy == 'max' ? arr.filter(hotel => hotel.price <= price) :
+            arr.filter(hotel => hotel.price >= price);
+        return arr;
     }
     searchByDateFrom(arr: HotelDto[], date: Date) {
         return arr.filter(hotel => hotel.availability.map(e =>
@@ -101,8 +106,8 @@ export class HotelService {
     }
 
     applyFilters(arr: HotelDto[], query: HotelQueryDto): HotelDto[] {
-        arr = query.priceFrom ? this.searchByMinPrice(arr, query.priceFrom) : arr;
-        arr = query.priceTo ? this.searchByMaxPrice(arr, query.priceTo) : arr;
+        arr = query.priceFrom ? this.searchByMinOrMaxPrice(arr, query.priceFrom, 'min') : arr;
+        arr = query.priceTo ? this.searchByMinOrMaxPrice(arr, query.priceTo, 'max') : arr;
         arr = query.Destination ? this.searchByDestination(arr, query.Destination) : arr;
         arr = query.HotelName ? this.searchByHotelName(arr, query.HotelName) : arr;
         arr = query.dateFrom ? this.searchByDateFrom(arr, query.dateFrom) : arr;
