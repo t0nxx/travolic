@@ -37,6 +37,3 @@ $ npm run test:cov
 
 Open Your Browser and hit http://localhost:3000/api/ You will see swagger docs
 
-## Docs
-type npx compodoc -p tsconfig.json -s ,then
-Open Your Browser and hit http://localhost:8080/ 
