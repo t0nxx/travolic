@@ -2,6 +2,10 @@
 
 [Travolic Back-End Task]
 
+[![CircleCI](https://circleci.com/gh/t0nxx/travolic.svg?style=svg)](https://circleci.com/gh/t0nxx/travolic)
+<a href="https://codeclimate.com/github/t0nxx/travolic/maintainability"><img src="https://api.codeclimate.com/v1/badges/1b27f68bd190fc0362f7/maintainability" /></a>
+
+
 ## Installation
 
 ```bash
